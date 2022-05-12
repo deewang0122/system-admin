@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    include: dev
+  aop:
+    auto: true
+  data:
+    redis:
+      repositories:
+        enabled: false
+mybatis:
+  type-aliases-package: com.dee.studyadmin.entity
+  mapper-locations: classpath:com/dee/studyadmin/repository/mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+#server:
+#  servlet:
+#    context-path: /winter
+
+

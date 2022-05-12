@@ -1,0 +1,40 @@
+##数据库连接信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://133.64.170.59:8904/basdb?useUnicode=true&characterEncoding=UTF-8
+    username: esmp_user
+    password: 'vW2dP[8j'
+    hikari:
+      max-lifetime: 100000
+##文件上传服务器信息
+upload:
+  server:
+    host: 133.64.92.209
+    port: 22
+    username: yangchao
+    password: xT61pG9%dI
+    location: /jtsxc/DayData
+    directory: /jtsxc/DayData_BAK/
+
+
+##本地文件信息
+local:
+  file:
+    location: /app/bss30_crm/esmp/esmp-scheduled/esmp-daydata/DayData/
+    name:
+      dat: esmp-tmp-dat.txt
+      dat-gz: esmp-tmp-dat.txt.gz
+      val: esmp-tmp-val.txt
+      check: esmp-tmp-check.txt
+##端口号
+server:
+  port: 18889
+##定时时间
+scheduled:
+  esmp:
+    cron: 0 0 9 * * ?
+
+##session过期时间
+session:
+  expire-time: 1800000
