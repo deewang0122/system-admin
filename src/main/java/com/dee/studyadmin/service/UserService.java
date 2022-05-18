@@ -1,6 +1,7 @@
 package com.dee.studyadmin.service;
 
 
+import com.dee.studyadmin.constant.UserConstant;
 import com.dee.studyadmin.entity.User;
 import com.dee.studyadmin.repository.jpa.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ public class UserService {
 
     public List<User> findAll() {
 
-        return userRepository.findAllByOrderByIdAsc();
+        return userRepository.findAllByOrderByUpdateTimeAscIdAsc();
     }
 
     public User findByLoginCodeAndPassword(String loginCode, String password) {
@@ -36,6 +37,10 @@ public class UserService {
     }
 
     public User update(User user) {
+        User user1 = userRepository.getById(user.getId());
+        user.setPassword(user1.getPassword());
+        user.setCreateBy(user1.getCreateBy());
+        user.setCreateTime(user1.getCreateTime());
         return userRepository.saveAndFlush(user);
     }
 

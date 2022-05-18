@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    List<User> findAllByOrderByIdAsc();
+    List<User> findAllByOrderByUpdateTimeAscIdAsc();
 
     User findByLoginCodeAndPassword(String loginCode, String password);
 }

@@ -45,6 +45,12 @@ public class LoginController {
         return new Result<>(list, "success", 1);
     }
 
+    @GetMapping("/study/home/getLoginUser")
+    public Result getLoginUser(HttpServletRequest request){
+        User user = loginService.getLoginUser(request.getHeader("Authorization"));
+        return new Result<>(user, "success", 1);
+    }
+
     @PostMapping("/logout")
     public Result logout(HttpServletRequest request) {
         Boolean b = loginService.logout(request.getHeader("Authorization"));

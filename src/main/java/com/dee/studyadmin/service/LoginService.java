@@ -25,7 +25,12 @@ public class LoginService {
     @Autowired
     RedisSession redisSession;
 
+    public User getLoginUser(String token) {
+        Long id = JWTUtils.getUserByToken(token).getId();
+        User user = userService.findById(id);
 
+        return user;
+    }
 
     public Result login(Login login) {
         User user = userService.findByLoginCodeAndPassword(login.getLoginCode(), login.getPassword());
